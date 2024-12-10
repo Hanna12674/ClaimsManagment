@@ -13,4 +13,5 @@ public interface ClaimRepository extends JpaRepository<Claim, Long> {
 
     // Fetch claims by customer and status
     List<Claim> findByCustomerIdAndStatus(Long customerId, ClaimStatus status);
+
 }
