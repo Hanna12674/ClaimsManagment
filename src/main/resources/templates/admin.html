@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <!-- Web Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Link to Custom CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+
+  <style>
+    body {
+      background-color: #f7f7f7;
+    }
+    .dashboard-container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: lightblue;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .table tbody tr:hover {
+      background-color: #e9ecef;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<div th:insert="fragments :: nav"></div>
+<div class="dashboard-container">
+  <h3 class="text-center">Admin Dashboard</h3>
+
+  <!-- Form to handle claim actions -->
+  <form action="#" method="POST">
+    <table class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>Claim Number</th>
+        <th>Claim Description</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>CL12345</td>
+        <td>Car accident</td>
+        <td>Approved</td>
+        <td>
+          <!-- Approve button -->
+          <button type="submit" class="btn btn-success" name="action" value="approve" data-claim="CL12345">Approve</button>
+        </td>
+      </tr>
+      <tr>
+        <td>CL67890</td>
+        <td>House damage</td>
+        <td>Pending</td>
+        <td>
+          <!-- Review button -->
+          <button type="submit" class="btn btn-warning" name="action" value="review" data-claim="CL67890">Review</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </form>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="admin.html">Admin Dashboard</a>
+    <button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+             aria-expanded="false">
+            Products
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="admin.html#bread">Admin Dashboard</a></li>
+            <li><a class="dropdown-item" href="claim_detail.html">Claim Detail</a></li>
+            <li><a class="dropdown-item" href="claim_history.html">Claim History</a></li>
+            <li><a class="dropdown-item" href="index.html">Home</a></li>
+            <li><a class="dropdown-item" href="login.html">Login</a></li>
+            <li><a class="dropdown-item" href="sign_up.html">Sign Up</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Footer Navigation -->
+<nav th:fragment="nav">
+  <ul>
+    <li><a href="#" th:href="@{/admin_dashboard}">Administrator Dashboard</a></li>
+    <li><a href="#" th:href="@{/submit-claim}">Submit Claim</a></li>
+    <li><a href="#" th:href="@{/claim_detail}">Claim Detail</a></li>
+    <li><a href="#" th:href="@{/login}">Login</a></li>
+    <li><a href="#" th:href="@{/signUp}">Sign Up</a></li>
+    <li><a href="#" th:href="@{/index}">Home</a></li>
+    <li><a href="#" th:href="@{/claim-history}">Claim History</a></li>
+  </ul>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/static/js/scripts.js"></script>
+
+</body>
+</html>
+

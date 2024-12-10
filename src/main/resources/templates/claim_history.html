@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim History</title>
+
+    <!-- Web Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Link to Custom CSS -->
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        .table-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="admin.html">Admin Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="claim_detail.html">Claim Detail</a></li>
+                <li class="nav-item"><a class="nav-link" href="claim_history.html">Claim History</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="sign_up.html">Sign Up</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Claim History Table -->
+<div class="table-container">
+    <h3 class="text-center">Claim History</h3>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Claim Number</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Submitted At</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>C12345</td>
+            <td>Car accident</td>
+            <td>Approved</td>
+            <td>2024-12-01</td>
+        </tr>
+        <tr>
+            <td>C67890</td>
+            <td>House damage</td>
+            <td>Pending</td>
+            <td>2024-11-20</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Button Links -->
+<div class="d-flex justify-content-center m-3">
+    <a href="#" class="btn btn-secondary m-2" th:href="@{/}">Home</a>
+    <a href="#" class="btn btn-primary m-2" th:href="@{/login}">Login</a>
+    <a href="#" class="btn btn-success m-2" th:href="@{/sign_up}">Sign Up</a>
+    <a href="#" class="btn btn-warning m-2" th:href="@{/submit_claim}">Submit Claim</a>
+    <a href="#" class="btn btn-dark m-2" th:href="@{/admin}">Admin</a>
+</div>
+
+<!-- Link to the Bootstrap JavaScript file -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Link to the jQuery file -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Custom JavaScript -->
+<script src="/static/js/scripts.js"></script>
+
+</body>
+
+</html>
