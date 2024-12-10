@@ -26,19 +26,19 @@ public class CustomerController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password, HttpSession session, Model model) {
+    public String login(@RequestParam String username,
+                        @RequestParam String password,
+                        HttpSession session,
+                        Model model) {
         Customer authenticatedCustomer = customerService.authenticateCustomer(username, password);
         if (authenticatedCustomer != null) {
             session.setAttribute("loggedInUser", authenticatedCustomer);
-            if ("ADMIN".equals(authenticatedCustomer.getRole())) {
-                return "redirect:/admin/dashboard";
-            } else {
-                return "redirect:/claims/history";
-            }
-        } else {
-            model.addAttribute("error", "Invalid username or password");
-            return "login";
+            return "ADMIN".equals(authenticatedCustomer.getRole())
+                    ? "redirect:/admin/dashboard"
+                    : "redirect:/claims/history";
         }
+        model.addAttribute("error", "Invalid username or password");
+        return "login"; // Redirect back to login form with an error
     }
 
     @GetMapping("/signup")
